@@ -1,86 +1,132 @@
-<!--
-  Name: Muhammad Ahmad Fawad
-  Roll Number: 26i-3266
-  Section: A
-  Lab 11: HTML, CSS and JavaScript - Theme 1: Café Menu
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café or Dhaba Menu - Shaam Ki Chai Corner</title>
-    <!-- Task 2: external stylesheet (all styling lives in style.css) -->
+    <title>Shaam Ki Chai Corner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Page title -->
     <header>
         <h1>Shaam Ki Chai Corner</h1>
         <p>Authentic desi chai and platter snacks, served every evening</p>
     </header>
 
+    <nav class="tabs">
+        <button class="tab-button active" onclick="showPage('home', this)">Home</button>
+        <button class="tab-button" onclick="showPage('menu', this)">Menu</button>
+        <button class="tab-button" onclick="showPage('about', this)">About Us</button>
+    </nav>
+
     <main>
-        <!-- Image -->
-        <img src="im.jpg" alt="Wooden board with a cup of chai, cake rusk, biscuits, samosas, nimko, peanuts, dried apricots, grapes and pomegranate" class="chai-img">
+        <section id="home" class="tab-page active">
+            <h2>Welcome to Shaam Ki Chai Corner</h2>
+            <img src="im.jpg" alt="A cup of chai with traditional snacks" class="chai-img">
+            <p class="intro">
+                Enjoy the taste of traditional evening chai with delicious snacks.
+                We bring your favourite desi chai experience to one table.
+                Whether you want a hot cup of karak doodh patti or a plate of
+                crispy snacks, we are here to make your evening special.
+            </p>
 
-        <p class="intro">
-            Our evening chai board brings everything you love about shaam ki chai
-            to one table: a hot cup of karak doodh patti, golden cake rusk,
-            crispy samosas and a bowl of crunchy nimko.
-        </p>
+            <h2>Our Specialities</h2>
+            <div class="content-section">
+                <h3>Karak Doodh Patti</h3>
+                <p>Freshly prepared, rich and strong desi tea.</p>
+                <h3>Snacks Platter</h3>
+                <p>Crispy samosas, cake rusk, biscuits and crunchy nimko.</p>
+            </div>
+        </section>
 
-        <h2>Menu and Pricing</h2>
+        <section id="menu" class="tab-page">
+            <h2>Our Complete Menu</h2>
+            <p class="intro">Choose from our selection of traditional drinks and snacks.</p>
 
-        <!-- Table -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Item Name</th>
-                    <th>Price (PKR)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Beverage</td>
-                    <td>Karak Doodh Patti Chai</td>
-                    <td>120</td>
-                </tr>
-                <tr>
-                    <td>Snacks</td>
-                    <td>Crispy Samosa Platter</td>
-                    <td>150</td>
-                </tr>
-                <tr>
-                    <td>Bakery</td>
-                    <td>Cake Rusk and Biscuits</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>Savoury</td>
-                    <td>Mix Nimko and Peanuts</td>
-                    <td>80</td>
-                </tr>
-            </tbody>
-        </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Item Name</th>
+                        <th>Price (PKR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Beverage</td>
+                        <td>Karak Doodh Patti Chai</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Snacks</td>
+                        <td>Crispy Samosa Platter</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>Bakery</td>
+                        <td>Cake Rusk and Biscuits</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Savoury</td>
+                        <td>Mix Nimko and Peanuts</td>
+                        <td>80</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <!-- Task 3: button that calls a JavaScript function -->
-        <button onclick="placeOrder()">Order Now</button>
+            <button class="order-button" onclick="placeOrder()">Order Now</button>
+        </section>
+
+        <section id="about" class="tab-page">
+            <h2>About Shaam Ki Chai Corner</h2>
+            <p class="intro">
+                Shaam Ki Chai Corner is inspired by the traditional Pakistani
+                evening chai culture. We believe that a cup of hot chai and
+                a plate of snacks can make an ordinary evening special.
+                Our aim is to bring people together over good food and
+                refreshing tea.
+            </p>
+
+            <h2>What Makes Us Special?</h2>
+            <div class="content-section">
+                <h3>Freshly Prepared</h3>
+                <p>We focus on serving fresh chai and snacks to our customers.</p>
+
+                <h3>Traditional Taste</h3>
+                <p>Our menu includes familiar desi favourites such as doodh patti,
+                samosas, cake rusk and nimko.</p>
+
+                <h3>A Welcoming Place</h3>
+                <p>Our goal is to provide a comfortable place where friends and
+                families can enjoy their evening together.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Shaam Ki Chai Corner. All rights reserved.</p>
     </footer>
 
-    <!-- Task 3: JavaScript (just before closing body tag) -->
     <script>
+        function showPage(pageId, clickedButton) {
+            var pages = document.getElementsByClassName("tab-page");
+            var buttons = document.getElementsByClassName("tab-button");
+
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove("active");
+            }
+
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            document.getElementById(pageId).classList.add("active");
+            clickedButton.classList.add("active");
+        }
+
         function placeOrder() {
-            console.log("Order button was clicked for the Shaam Ki Chai platter");
-            window.alert("order confirmed for the price  of X.");
+            alert("Thank you! Your order request has been received.");
         }
     </script>
-
 </body>
 </html>

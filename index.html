@@ -1,0 +1,86 @@
+<!--
+  Name: Muhammad Ahmad Fawad
+  Roll Number: 26i-3266
+  Section: A
+  Lab 11: HTML, CSS and JavaScript - Theme 1: Café Menu
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café or Dhaba Menu - Shaam Ki Chai Corner</title>
+    <!-- Task 2: external stylesheet (all styling lives in style.css) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Page title -->
+    <header>
+        <h1>Shaam Ki Chai Corner</h1>
+        <p>Authentic desi chai and platter snacks, served every evening</p>
+    </header>
+
+    <main>
+        <!-- Image -->
+        <img src="im.jpg" alt="Wooden board with a cup of chai, cake rusk, biscuits, samosas, nimko, peanuts, dried apricots, grapes and pomegranate" class="chai-img">
+
+        <p class="intro">
+            Our evening chai board brings everything you love about shaam ki chai
+            to one table: a hot cup of karak doodh patti, golden cake rusk,
+            crispy samosas and a bowl of crunchy nimko.
+        </p>
+
+        <h2>Menu and Pricing</h2>
+
+        <!-- Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Item Name</th>
+                    <th>Price (PKR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Beverage</td>
+                    <td>Karak Doodh Patti Chai</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>Snacks</td>
+                    <td>Crispy Samosa Platter</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>Bakery</td>
+                    <td>Cake Rusk and Biscuits</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Savoury</td>
+                    <td>Mix Nimko and Peanuts</td>
+                    <td>80</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Task 3: button that calls a JavaScript function -->
+        <button onclick="placeOrder()">Order Now</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Shaam Ki Chai Corner. All rights reserved.</p>
+    </footer>
+
+    <!-- Task 3: JavaScript (just before closing body tag) -->
+    <script>
+        function placeOrder() {
+            console.log("Order button was clicked for the Shaam Ki Chai platter");
+            window.alert("order confirmed for the price  of X.");
+        }
+    </script>
+
+</body>
+</html>
